@@ -1,0 +1,28 @@
+:host {
+  --light-grey: #e5e5e5;
+  --dark-grey: #565656;
+  --cream: #fff1d0;
+}
+
+label {
+  margin-bottom: 15px;
+}
+
+.wrapper { 
+  display: flex; 
+  flex-direction: column; 
+  max-width: 500px; 
+  padding: 60px 0;
+}
+
+.wrapper ~ .wrapper {
+  border-top: 1px solid var(--light-grey);
+  padding-top: 20px;
+}
+
+.pony-name {
+  display: inline;
+  font-family: "Fira Mono", "Andale Mono", "Consolas", monospace;
+  font-weight: 700;
+  font-size: 12px;
+}

@@ -1,0 +1,62 @@
+<div class="wrapper">
+	<label>Default Select Element</label>
+	<select>
+    <option *ngFor="let item of listItems" [value]="item">{{
+      item
+    }}</option>
+  </select>
+</div>
+
+<div class="wrapper">
+	<label>Kendo Dropdown List</label>
+	<kendo-dropdownlist [data]="listItems" [filterable]="true">
+	</kendo-dropdownlist>
+</div>
+
+<div class="wrapper">
+	<label>Kendo Combobox</label>
+	<kendo-combobox [data]="listItems" [allowCustom]="true">
+	</kendo-combobox>
+</div>
+
+<div class="wrapper">
+	<label>Kendo Auto Complete</label>
+	<kendo-autocomplete placeholder="Pick your Pony..." [data]="ponies" valueField="name">
+	</kendo-autocomplete>
+</div>
+
+<div class="wrapper">
+  <kendo-label class="k-display-block" [for]="mccbPonies" text="Kendo UI MultiColumnComboBox">
+  </kendo-label>
+  <kendo-multicolumncombobox 
+    #mccbPonies 
+    [data]="ponies" 
+    textField="name" 
+    valueField="id">
+    <kendo-combobox-column 
+      field="name" 
+      title="Pony Name" 
+      [width]="200">
+      <ng-template 
+        kendoMultiColumnComboBoxColumnCellTemplate 
+        let-dataItem>
+        <kendo-avatar 
+          [imageSrc]="dataItem.image[0]" 
+          size="medium" 
+          shape="circle">
+        </kendo-avatar>
+        <p class="pony-name">{{ dataItem.name }}</p>
+      </ng-template>
+    </kendo-combobox-column>
+    <kendo-combobox-column 
+      field="occupation" 
+      title="Occupation" 
+      [width]="250">
+    </kendo-combobox-column>
+    <kendo-combobox-column 
+      field="alias" 
+      title="Alias" 
+      [width]="200">
+    </kendo-combobox-column>
+  </kendo-multicolumncombobox>
+</div>
